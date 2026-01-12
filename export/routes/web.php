@@ -9,3 +9,5 @@ Route::get('/products/{id}', [ProductController::class, 'show'])->name('products
 Route::get('/products/category/{category}', [ProductController::class, 'index'])
     ->name('products.category');
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
+

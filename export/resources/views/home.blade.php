@@ -36,7 +36,7 @@
 
     <nav id="nav">
         <a href="#home">Home</a>
-        <a href="{{ url('/about-us') }}">About Us</a>
+        <a href="{{ url('/aboutus') }}">About Us</a>
         <a href="#products">Products</a>
         <a href="#process">Process</a>
         <a href="#mission-values">Mission & Values</a>
