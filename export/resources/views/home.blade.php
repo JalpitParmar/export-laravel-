@@ -457,7 +457,7 @@
         <ul>
           <li><a href="index.php">Home</a></li>
           <li><a href="aboutus.php">About Us</a></li>
-          <li><a href="shipping-policy.php">Shipping Policy</a></li>
+          <li><a href="{{ url('/shipping-policy') }}">Shipping Policy</a></li>
           <li><a href="index.php#products">Products</a></li>
           <li><a href="index.php#process">Our Process</a></li>
           <li><a href="index.php#mission-values">Mission & Values</a></li>
