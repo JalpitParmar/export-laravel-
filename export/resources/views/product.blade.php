@@ -7,11 +7,8 @@
 
   <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('favicon1.png') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  {{-- 🔴 KEEP YOUR FULL CSS HERE EXACTLY SAME --}}
-  <style>
-    /* 👉 PASTE YOUR COMPLETE CSS HERE (UNCHANGED) */
-  </style>
+<link rel="stylesheet" href="{{ asset('css/product.css') }}">
+ 
 </head>
 
 <body>
@@ -22,7 +19,7 @@
 </div>
 
 <!-- HEADER -->
-@include('partials.header')
+@include('header')
 
 <!-- MOBILE MENU OVERLAY -->
 <div class="menu-overlay" id="menuOverlay"></div>
@@ -177,6 +174,15 @@
     window.location.href = buildUrl(document.getElementById('categoryFilter').value, this.value);
   });
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const loader = document.querySelector('.loader-wrapper');
 
+    // Minimum visible time for smooth UX
+    setTimeout(() => {
+      loader.classList.add('hidden');
+    }, 400);
+  });
+</script>
 </body>
 </html>

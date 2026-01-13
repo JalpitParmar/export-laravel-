@@ -103,7 +103,7 @@
   <div class="categories-grid">
 
     <!-- Namkeen -->
-    <a href="product.php?category=namkeen" class="category-link-wrapper"  >
+    <a href="{{ route('products.category', 'namkeen') }}" class="category-link-wrapper"  >
       <div class="category">
         <div class="category-image">
           <img src="assets/namkeens.jpg" alt="Namkeen" >
@@ -117,7 +117,7 @@
     </a>
 
     <!-- Spices Powder -->
-    <a href="product.php?category=spices-powder" class="category-link-wrapper">
+    <a href="{{ route('products.category', 'spices-powder') }}" class="category-link-wrapper">
       <div class="category">
         <div class="category-image">
           <img src="assets/spicespowder.jpg" alt="Spices Powder" onerror="this.src='https://picsum.photos/seed/spices/300/180.jpg'">
@@ -131,10 +131,10 @@
     </a>
 
     <!-- Whole Spices -->
-    <a href="product.php?category=whole-spices" class="category-link-wrapper">
+    <a href="{{ route('products.category', 'whole-spices') }}" class="category-link-wrapper">
       <div class="category">
         <div class="category-image">
-          <img src="assets/wholespices.png" alt="Whole Spices" onerror="this.src='https://picsum.photos/seed/wholespices/300/180.jpg'">
+          <img src="assets/wholespices.jpg" alt="Whole Spices" onerror="this.src='https://picsum.photos/seed/wholespices/300/180.jpg'">
         </div>
         <div class="category-content">
           <h4>Whole Spices</h4>
@@ -145,7 +145,7 @@
     </a>
 
     <!-- Cooking Paste & Chutney -->
-    <a href="product.php?category=cooking-paste-chutney" class="category-link-wrapper">
+    <a href="{{ route('products.category', 'cooking-paste-chutney') }}" class="category-link-wrapper">
       <div class="category">
         <div class="category-image">
           <img src="assets/cooking-paste1.jpg" alt="Cooking Paste & Chutney" onerror="this.src='https://picsum.photos/seed/chutney/300/180.jpg'">
@@ -159,7 +159,7 @@
     </a>
 
     <!-- Sauces -->
-    <a href="product.php?category=sauces" class="category-link-wrapper">
+    <a href="{{ route('products.category', 'sauces') }}" class="category-link-wrapper">
       <div class="category">
         <div class="category-image">
           <img src="{{ asset('assets/sauce1.jpg') }}" alt="Sauce" onerror="this.src='https://picsum.photos/seed/sauce/300/180.jpg'">
@@ -173,7 +173,7 @@
     </a>
 
     <!-- Pickles -->
-    <a href="product.php?category=pickles" class="category-link-wrapper">
+    <a href="{{ route('products.category', 'pickles') }}" class="category-link-wrapper">
       <div class="category">
         <div class="category-image">
           <img src="{{ asset('assets/pickles.jpg') }}" alt="Pickles" onerror="this.src='https://picsum.photos/seed/pickles/300/180.jpg'">
@@ -187,7 +187,7 @@
     </a>
 
     <!-- Jam -->
-    <a href="product.php?category=jam" class="category-link-wrapper">
+    <a href="{{ route('products.category', 'jam') }}" class="category-link-wrapper">
       <div class="category">
         <div class="category-image">
           <img src="{{ asset('assets/jam.jpg') }}" alt="Jam" onerror="this.src='https://picsum.photos/seed/jam/300/180.jpg'">
@@ -201,7 +201,7 @@
     </a>
 
     <!-- Ready to Eat -->
-    <a href="product.php?category=ready-to-eat" class="category-link-wrapper">
+    <a href="{{ route('products.category', 'ready-to-eat') }}" class="category-link-wrapper">
       <div class="category">
         <div class="category-image">
           <img src="{{ asset('assets/ready-to-eat.jpg') }}" alt="Ready to Eat" onerror="this.src='https://picsum.photos/seed/readytoeat/300/180.jpg'">
@@ -215,7 +215,7 @@
     </a>
 
     <!-- Dry Bhakhri -->
-    <a href="product.php?category=dry-bhakhri" class="category-link-wrapper">
+    <a href="{{ route('products.category', 'dry-bhakhri') }}" class="category-link-wrapper">
       <div class="category">
         <div class="category-image">
           <img src="{{ asset('assets/dry-bhakhri.jpg') }}" alt="Dry Bhakhri" onerror="this.src='https://picsum.photos/seed/bhakhri/300/180.jpg'">
@@ -229,7 +229,7 @@
     </a>
 
     <!-- Beverages -->
-    <a href="product.php?category=beverages" class="category-link-wrapper">
+    <a href="{{ route('products.category', 'beverages') }}" class="category-link-wrapper">
       <div class="category">
         <div class="category-image">
           <img src="{{ asset('assets/beverages.jpg') }}" alt="Beverages" onerror="this.src='https://picsum.photos/seed/beverages/300/180.jpg'">
@@ -243,7 +243,7 @@
     </a>
 
     <!-- Indian Sweets -->
-    <a href="product.php?category=indian-sweets" class="category-link-wrapper">
+    <a href="{{ route('products.category', 'indian-sweets') }}" class="category-link-wrapper">
       <div class="category">
         <div class="category-image">
           <img src="{{ asset('assets/indian-sweets.jpg') }}" alt="Indian Sweets" onerror="this.src='https://picsum.photos/seed/sweets/300/180.jpg'">
@@ -257,7 +257,7 @@
     </a>
 
     <!-- A2 Cow Ghee -->
-    <a href="product.php?category=a2-cow-ghee" class="category-link-wrapper">
+    <a href="{{ route('products.category', 'a2-cow-ghee') }}" class="category-link-wrapper">
       <div class="category">
         <div class="category-image">
           <img src="{{ asset('assets/a2-ghee.jpg') }}" alt="A2 Cow Ghee">
@@ -496,6 +496,15 @@
 
 {{-- JS --}}
 <script src="{{ asset('js/index.js') }}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const loader = document.querySelector('.loader-wrapper');
 
+    // Minimum visible time for smooth UX
+    setTimeout(() => {
+      loader.classList.add('hidden');
+    }, 400);
+  });
+</script>
 </body>
 </html>

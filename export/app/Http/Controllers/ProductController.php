@@ -8,7 +8,28 @@ use App\Models\User;
 
 class ProductController extends Controller
 {
+    /**
+     * Show all products (no category)
+     * URL: /products
+     */
     public function index(Request $request)
+    {
+        return $this->productList($request, 'all');
+    }
+
+    /**
+     * Show products by category
+     * URL: /products/category/{category}
+     */
+    public function category(Request $request, $category)
+    {
+        return $this->productList($request, $category);
+    }
+
+    /**
+     * Shared logic (DRY principle)
+     */
+    private function productList(Request $request, $category)
     {
         // Contact info
         $contact = User::select(
@@ -18,30 +39,29 @@ class ProductController extends Controller
             'business_hours'
         )->where('id', 1)->first();
 
-        // Filters
-        $selectedCategory = $request->get('category', 'all');
-        $selectedSort     = $request->get('sort', 'featured');
+        // Sorting
+        $selectedSort = $request->get('sort', 'featured');
 
         // Query
         $query = Product::query();
 
-        if ($selectedCategory !== 'all') {
-            $query->where('category', $selectedCategory);
+        if ($category !== 'all') {
+            $query->where('category', $category);
         }
 
         if ($selectedSort === 'name') {
             $query->orderBy('product_name', 'asc');
         } else {
-            $query->orderBy('created_at', 'desc'); // featured = newest
+            $query->orderBy('created_at', 'desc');
         }
 
         $products = $query->get();
 
-        return view('products.index', compact(
-            'products',
-            'contact',
-            'selectedCategory',
-            'selectedSort'
-        ));
+        return view('product', [
+            'products'         => $products,
+            'contact'          => $contact,
+            'selectedCategory' => $category,
+            'selectedSort'     => $selectedSort,
+        ]);
     }
 }
