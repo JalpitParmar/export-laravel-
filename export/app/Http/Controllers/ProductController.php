@@ -64,4 +64,27 @@ class ProductController extends Controller
             'selectedSort'     => $selectedSort,
         ]);
     }
+
+    public function show($id){
+
+        $product = Product::findOrFail($id);
+    
+        $relatedProducts = Product::where('category', $product->category)
+            ->where('id', '!=', $product->id)
+            ->limit(4)
+            ->get();
+    
+        $contact = User::select(
+            'business_address',
+            'phone_number',
+            'email'
+        )->where('id', 1)->first();
+    
+        return view('product-detail', compact(
+            'product',
+            'relatedProducts',
+            'contact'
+        ));
+    }
+
 }

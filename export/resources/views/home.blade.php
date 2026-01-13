@@ -493,13 +493,23 @@
       <p>&copy; 2025 Bhoomi Trade Line | All Rights Reserved | Privacy Policy | Terms of Service</p>
     </div>
   </footer>
+<!-- WHATSAPP BUTTON -->
+  <a href="https://wa.me/+ ?text=Hi%20Bhoomi%20Trade%20Line%2C%20I'm%20interested%20in%20your%20products."
+     target="_blank" 
+     class="whatsapp-btn" 
+     id="whatsappBtn">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
+  <!-- BACK TO TOP BUTTON -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
 {{-- JS --}}
 <script src="{{ asset('js/index.js') }}"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const loader = document.querySelector('.loader-wrapper');
-
     // Minimum visible time for smooth UX
     setTimeout(() => {
       loader.classList.add('hidden');
